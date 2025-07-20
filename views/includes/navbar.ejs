@@ -1,0 +1,90 @@
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color: white;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .btn-search:hover{
+    background-color: #fe424d;
+    color: white;
+  }
+
+  .btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-input{
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+  }
+
+  .navbar-action-btn {
+    background: transparent;
+    color: #000 !important;
+    border: 0.3px solid #000;
+    border-radius: 25px;
+    font-weight: normal;
+    font-size: 0.97rem;
+    padding: 0.4rem 1.2rem;
+    margin-left: 1rem;
+    box-shadow: none;
+    transition: background 0.3s, color 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-decoration: none;
+  }
+  .navbar-action-btn:hover, .navbar-action-btn:focus {
+    background: #fe424d;
+    color: #fff !important;
+    border: 0.3px solid #fe424d;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(254, 66, 77, 0.18);
+    text-decoration: none;
+  }
+  .navbar-action-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 4px rgba(254, 66, 77, 0.10);
+  }
+</style>
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+     
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        
+        <a class="nav-link" href="/listings">Explore</a>
+          
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search">
+      <input class="form-control me-2 search-input" type="search" placeholder="Search Destination" aria-label="Search"/>
+      <button class="btn btn-search" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>Search</button>
+    </form>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link navbar-action-btn" href="/listings/new"><i class="fa-solid fa-house-chimney-window"></i>  Add new Listing</a>
+        <a class="nav-link navbar-action-btn" href="/signup"><i class="fa-solid fa-user-plus"></i> Signup</a>
+        <a class="nav-link navbar-action-btn" href="/login"> <i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<br>
