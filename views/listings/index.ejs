@@ -2,35 +2,56 @@
 
 <body>
   <style>
-    #filters{
+    #filters {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1rem;
     }
-    .filter{
+    .filter {
       text-align: center;
-      margin-right: 2rem;
+      margin-right: 0;
+      margin-bottom: 1rem;
       opacity: 0.7;
       cursor: pointer;
+      min-width: 80px;
     }
-    .filter:hover{
+    .filter:hover {
       opacity: 1;
     }
-
-    .tax-info{
+    .tax-info {
       display: none;
     }
-
-    .tax-toggle{
+    .tax-toggle {
       border: 1px solid black;
       border-radius: 1rem;
-      height: 3.5rem;
-      padding: 1rem;
-      /* padding-bottom: 2rem; */
+      height: auto;
+      padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
-      margin-left: 3rem;
+      margin-left: 0;
       margin-bottom: 1rem;
+      width: 100%;
+      max-width: 350px;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 15rem;
+      object-fit: cover;
+    }
+    .listing-card {
+      min-width: 0;
+      width: 100%;
+    }
+    @media (max-width: 576px) {
+      .card-img-top {
+        height: 10rem;
+      }
+      .listing-card {
+        width: 100%;
+      }
     }
   </style>
   <div id="filters">
@@ -88,24 +109,24 @@
   </div>
   <!-- <h3>All Listings</h3> -->
   <br>
-  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
     <% for(let listing of allListings){ %>
-      <a href="/listings/<%=listing._id%>" class="listing-link">
-      <div class="card listing-card" style="width: 23rem">
-          <img src="<%= listing.image.url ? listing.image.url : listing.image %>" class="card-img-top" alt="listing Image" style="height: 15rem" />
-          <div class="card-img-overlay"></div>
-          <div class="card-body">
-           <h5 class="card-title"><%= listing.title %></h5>
-           <p class="card-text">
-           <i><b>&#8377 <%= listing.price.toLocaleString("en-IN") %> </b></i>/ night
-           <i class="tax-info">+18% GST</i>
-            <br>
-          </p>
+      <div class="col">
+        <a href="/listings/<%=listing._id%>" class="listing-link">
+          <div class="card listing-card h-100">
+            <img src="<%= listing.image.url ? listing.image.url : listing.image %>" class="card-img-top" alt="listing Image" />
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <p class="card-text">
+                <i><b>&#8377 <%= listing.price.toLocaleString("en-IN") %> </b></i>/ night
+                <i class="tax-info">+18% GST</i>
+                <br>
+              </p>
+            </div>
           </div>
-          </div>
-  
-  </a>
-   <% } %>
+        </a>
+      </div>
+    <% } %>
   </div>
 
 
