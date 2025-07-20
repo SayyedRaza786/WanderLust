@@ -22,6 +22,22 @@
   }
 
   .navbar-action-btn {
+  /* Responsive collapsed navbar background for mobile */
+  .navbar-collapse {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  @media (max-width: 768px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 56px; /* height of navbar */
+      left: 0;
+      width: 100%;
+    }
+  }
     background: transparent;
     color: #000 !important;
     border: 0.3px solid #000;
