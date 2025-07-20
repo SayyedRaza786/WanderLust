@@ -24,11 +24,14 @@
   .navbar-action-btn {
   /* Responsive collapsed navbar background for mobile */
   .navbar-collapse {
-    background: #fff;
+    background: rgba(255,255,255,0.85);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border-radius: 0.5rem;
     padding: 1rem;
     z-index: 1000;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.3s;
   }
   @media (max-width: 768px) {
     .navbar-collapse {
