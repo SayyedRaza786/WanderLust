@@ -9,10 +9,9 @@
       </div>
       <div class="card col-12 col-md-8 offset-md-2 show-card listing-card mb-3">
         <img src="<%=listing.image.url ? listing.image.url : listing.image%>" class="card-img-top show-img img-fluid responsive-listing-img" alt="listing_image">
+  <!-- Responsive styles for the whole page -->
   <style>
-    body {
-      overflow-x: hidden;
-    }
+    body { overflow-x: hidden; }
     .responsive-listing-img {
       width: 100%;
       max-width: 432px;
@@ -29,7 +28,36 @@
       align-items: center;
       width: 100%;
     }
-    @media (max-width: 576px) {
+    .center-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .btn-responsive {
+      min-width: 120px;
+      max-width: 180px;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    .map-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+    #map {
+      width: 432px;
+      height: 300px;
+      border: 0.5px solid #000;
+      border-radius: 12px;
+      background: #f8f8f8;
+      margin: 0 auto;
+      display: block;
+    }
+    @media (max-width: 768px) {
       .responsive-listing-img {
         max-width: 100%;
         height: 10rem;
@@ -38,6 +66,17 @@
         width: 100%;
         margin: 0 auto;
         align-items: center;
+      }
+      .center-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      #map {
+        width: 100%;
+        min-width: 220px;
+        max-width: 100%;
+        height: 200px;
       }
       .row {
         margin-right: 0;
@@ -59,7 +98,7 @@
     </div>
 
     <div class="row mb-3">
-      <div class="col-12 col-md-8 offset-md-2 d-flex flex-wrap gap-2">
+      <div class="col-12 col-md-8 offset-md-2 center-btns">
         <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn btn-responsive">Edit</a>
         <form method="post" action="/listings/<%=listing._id%>?_method=DELETE" class="d-inline">
           <button class="btn btn-dark delete-btn btn-responsive">Delete</button>
@@ -163,30 +202,6 @@
     } else if (locationString && locationString.trim() !== '') {
       fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationString)}`)
         .then(res => res.json())
-    .map-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin: 0 auto;
-    }
-    #map {
-      width: 432px;
-      height: 300px;
-      border: 0.5px solid #000;
-      border-radius: 12px;
-      background: #f8f8f8;
-      margin: 0 auto;
-      display: block;
-    }
-    @media (max-width: 576px) {
-      #map {
-        width: 100%;
-        min-width: 220px;
-        max-width: 100%;
-        height: 200px;
-      }
-    }
         .then(data => {
           if (data && data[0]) {
             const coords = [parseFloat(data[0].lon), parseFloat(data[0].lat)];
