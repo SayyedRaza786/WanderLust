@@ -11,29 +11,48 @@
         <img src="<%=listing.image.url ? listing.image.url : listing.image%>" class="card-img-top show-img img-fluid responsive-listing-img" alt="listing_image">
   <!-- Responsive styles for the whole page -->
   <style>
-    body { overflow-x: hidden; }
+    body { overflow-x: hidden; background: #fafbfc; }
+    .container-fluid {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .show-card {
+      margin: 2rem auto 2rem auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-radius: 1rem;
+      background: #fff;
+    }
     .responsive-listing-img {
       width: 100%;
       max-width: 432px;
       height: 16rem;
       object-fit: cover;
       border-radius: 0.75rem;
-      margin: 0 auto;
+      margin: 0 auto 1rem auto;
       display: block;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
     }
-    .show-card {
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .listing-text-container {
+      max-width: 432px;
       width: 100%;
+      text-align: left;
+      margin-bottom: 1rem;
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+      background: #f7f7f7;
+      border-radius: 0.5rem;
     }
     .center-btns {
       display: flex;
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+      margin-top: 0.5rem;
     }
     .btn-responsive {
       min-width: 120px;
@@ -41,12 +60,23 @@
       width: 100%;
       margin-bottom: 0.5rem;
     }
+    .review-section {
+      margin: 2rem 0;
+      padding: 1.5rem 1rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
     .map-container {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
-      margin: 0 auto;
+      margin: 2rem auto 2rem auto;
+      padding: 1rem 0;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
     #map {
       width: 432px;
@@ -56,21 +86,42 @@
       background: #f8f8f8;
       margin: 0 auto;
       display: block;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+    hr {
+      margin: 2rem 0;
     }
     @media (max-width: 768px) {
+      .container-fluid {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .show-card {
+        margin: 1rem auto 1rem auto;
+        padding: 1rem 0.5rem;
+      }
       .responsive-listing-img {
         max-width: 100%;
         height: 10rem;
+        margin-bottom: 0.5rem;
       }
-      .show-card {
-        width: 100%;
-        margin: 0 auto;
-        align-items: center;
+      .listing-text-container {
+        max-width: 100%;
+        padding: 0.5rem;
       }
       .center-btns {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .review-section {
+        margin: 1rem 0;
+        padding: 1rem 0.5rem;
+      }
+      .map-container {
+        margin: 1rem auto 1rem auto;
+        padding: 0.5rem 0;
       }
       #map {
         width: 100%;
@@ -85,14 +136,16 @@
       }
     }
   </style>
-        <div class="card-body">
-          <p class="card-text" style="font-size: 1.22rem;">
-            <b style="font-size: 1.7rem;"><%= listing.title %></b> <br>
-            <%= listing.description %> <br>
-            &#8377 <%= listing.price.toLocaleString("en-IN") %> <br>
-            <%= listing.location %> <br>
-            <%= listing.country %> <br>
-          </p>
+        <div class="card-body d-flex flex-column align-items-center">
+          <div class="listing-text-container" style="max-width:432px; width:100%; text-align:left;">
+            <p class="card-text" style="font-size: 1.22rem;">
+              <b style="font-size: 1.7rem;"><%= listing.title %></b> <br>
+              <%= listing.description %> <br>
+              &#8377 <%= listing.price.toLocaleString("en-IN") %> <br>
+              <%= listing.location %> <br>
+              <%= listing.country %> <br>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -107,7 +160,7 @@
     </div>
 
     <div class="row mb-3">
-      <div class="col-12 col-md-8 offset-md-2">
+      <div class="col-12 col-md-8 offset-md-2 review-section">
         <hr>
         <h4>Leave a Review</h4>
         <form action="/listings/<%= listing.id %>/reviews" method="post" novalidate class="needs-validation">
@@ -132,21 +185,6 @@
             <div class="invalid-feedback">Please Add some Comments for review</div>
           </div>
           <button class="btn btn-outline-dark btn-responsive">Submit</button>
-  <style>
-    .btn-responsive {
-      min-width: 120px;
-      max-width: 180px;
-      width: 100%;
-      margin-bottom: 0.5rem;
-    }
-    @media (min-width: 768px) {
-      .btn-responsive {
-        width: auto;
-        min-width: 120px;
-        max-width: 180px;
-      }
-    }
-  </style>
         </form>
         <hr>
         <% if(listing.reviews.length > 0) { %>
