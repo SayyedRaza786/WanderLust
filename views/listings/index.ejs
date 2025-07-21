@@ -2,6 +2,9 @@
 
 <body>
   <style>
+    body {
+      overflow-x: hidden;
+    }
     #filters {
       display: flex;
       flex-wrap: wrap;
@@ -25,7 +28,7 @@
       display: none;
     }
     .tax-toggle {
-      border: 1px solid black;
+      border : 1px solid black;
       border-radius: 1rem;
       height: auto;
       padding: 0.5rem 1rem;
@@ -37,14 +40,25 @@
       box-sizing: border-box;
       justify-content: center;
     }
+    .row {
+      margin-right: 0;
+      margin-left: 0;
+      justify-content: center;
+    }
     .card-img-top {
       width: 100%;
       height: 15rem;
       object-fit: cover;
+      margin: 0 auto;
+      display: block;
     }
     .listing-card {
       min-width: 0;
       width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     @media (max-width: 576px) {
       .card-img-top {
@@ -52,6 +66,13 @@
       }
       .listing-card {
         width: 100%;
+        margin: 0 auto;
+        align-items: center;
+      }
+      .row {
+        margin-right: 0;
+        margin-left: 0;
+        justify-content: center;
       }
     }
   </style>
