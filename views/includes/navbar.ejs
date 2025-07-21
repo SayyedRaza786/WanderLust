@@ -1,3 +1,33 @@
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color: white;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+  .btn-search:hover{
+    background-color: #fe424d;
+    color: white;
+  }
+  .btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .search-input{
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+  }
+  /* Responsive collapsed navbar background for mobile */
+  .navbar-collapse {
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.3s;
+  }
   @media (max-width: 768px) {
     .navbar-collapse {
       position: absolute;
@@ -9,9 +39,16 @@
     .navbar-nav {
       margin-bottom: 1rem;
     }
-    .navbar-action-btn,
+    .navbar-action-btn {
+      margin-bottom: 1rem !important;
+      padding: 0.7rem 1.2rem;
+      font-size: 1.1rem;
+      border-radius: 18px;
+      width: 100%;
+      text-align: left;
+    }
     .nav-link {
-      margin-bottom: 1rem;
+      margin-bottom: 1rem !important;
       padding: 0.7rem 1.2rem;
       font-size: 1.1rem;
       border-radius: 18px;
@@ -25,6 +62,35 @@
       margin-bottom: 0.7rem;
     }
   }
+  .navbar-action-btn {
+    background: transparent;
+    color: #000 !important;
+    border: 0.3px solid #000;
+    border-radius: 25px;
+    font-weight: normal;
+    font-size: 0.97rem;
+    padding: 0.4rem 1.2rem;
+    margin-left: 1rem;
+    box-shadow: none;
+    transition: background 0.3s, color 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-decoration: none;
+  }
+  .navbar-action-btn:hover, .navbar-action-btn:focus {
+    background: #fe424d;
+    color: #fff !important;
+    border: 0.3px solid #fe424d;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(254, 66, 77, 0.18);
+    text-decoration: none;
+  }
+  .navbar-action-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 4px rgba(254, 66, 77, 0.10);
+  }
+</style>
 <style>
   .btn-search{
     background-color: #fe424d;
