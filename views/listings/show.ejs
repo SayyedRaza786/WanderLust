@@ -223,12 +223,12 @@
                 <label for="first-rate5" title="Amazing">5 stars</label>
               </fieldset>
             </div>
-            <div class="mb-3 mt-3">
-              <label for="comment" class="form-label">Comments</label>
-              <textarea name="review[comment]" id="comment" rows="3" class="form-control" required></textarea>
-              <div class="invalid-feedback">Please Add some Comments for review</div>
+            <div class="mb-3 mt-3 d-flex flex-column align-items-center" style="width:100%;">
+              <label for="comment" class="form-label" style="width:100%; max-width:432px; text-align:left;">Comments</label>
+              <textarea name="review[comment]" id="comment" rows="3" class="form-control" required style="width:100%; max-width:432px;"></textarea>
+              <div class="invalid-feedback" style="width:100%; max-width:432px;">Please Add some Comments for review</div>
+              <button class="btn btn-outline-dark btn-responsive mt-3" style="max-width:200px; width:100%; margin:0 auto; display:block;">Submit</button>
             </div>
-            <button class="btn btn-outline-dark btn-responsive">Submit</button>
           </form>
           <hr>
           <% if(listing.reviews.length > 0) { %>
